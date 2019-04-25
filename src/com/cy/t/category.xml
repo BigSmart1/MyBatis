@@ -17,9 +17,17 @@
         SELECT * FROM category_ WHERE id=#{id}
     </select>
 
-    
     <update id="updateCategory" parameterType="Category">
         UPDATE category_ set name=#{name} where id=#{id}
     </update>
+    <!--模糊查询-->
+    <select id="listByName" parameterType="String" resultType="Category">
+        SELECT * from category_ where name like concat('%',#{1},'%')
+    </select>
+    <!--多条件查询-->
+    <select id="listByIdName"   parameterType="map" resultType="Category">
+        select * from category_ where name like concat('%',#{name},'%') AND id> #{id};
+    </select>
+
 
 </mapper>
