@@ -1,5 +1,7 @@
 package com.cy.t;
 
+import java.util.List;
+
 /**
  * @ClassName category
  * @Description TODD
@@ -10,6 +12,7 @@ package com.cy.t;
 public class category {
     private int id;
     private String name;
+    List<Product> products;
 
     public int getId() {
         return id;
@@ -27,7 +30,19 @@ public class category {
         this.name = name;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 
-
+    @Override
+    public String toString() {
+        return "category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

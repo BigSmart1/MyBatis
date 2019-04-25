@@ -42,7 +42,7 @@ public class TestMybatis {
 //        us.setName("测3的爸爸！");
 //        session.update("updateCategory",us);
 //        listAll(session);
-        listAllt(session);
+        listAll(session);
 
 
 
@@ -60,9 +60,13 @@ public class TestMybatis {
 
     private static void listAll(SqlSession session)
     {
-        List<category> cs = session.selectList("listCategory");
+        List<category> cs = session.selectList("listC");
         for (category c : cs) {
-            System.out.println(c.getName());
+            System.out.println(c);
+            List<Product> ps = c.getProducts();
+            for (Product p : ps) {
+                System.out.println("\t"+p);
+            }
         }
 
     }
